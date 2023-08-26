@@ -26,7 +26,7 @@ function Landing() {
                 </div>
             </div>
             <div className="title-grid-resume-button">
-                <button className="resume-button">View Resume</button>
+                <button className="resume-button">{'> '}View Resume<span>_</span></button>
             </div>
             <div className="title-grid-welcome-message">
                 <h3>Welcome to my page!</h3>

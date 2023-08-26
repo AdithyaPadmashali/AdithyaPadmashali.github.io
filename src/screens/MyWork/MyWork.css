@@ -1,0 +1,26 @@
+.work-section {
+    display: flex;
+    place-content: center;
+    margin: 20em auto
+}
+
+.work-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.work-description {
+    width: 50%;
+    margin-bottom: 6rem;
+    text-align: justify;
+    line-height: 2;
+    font-size: medium;
+}
+
+.work-title {
+    font-size: larger;
+}

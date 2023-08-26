@@ -13,6 +13,10 @@
     place-content: center;
 }
 
+.logos-title {
+    font-size: larger;
+}
+
 .logos-container {
     display: flex;
     flex-direction: column;

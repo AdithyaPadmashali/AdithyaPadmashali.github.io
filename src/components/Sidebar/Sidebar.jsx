@@ -11,12 +11,7 @@ function Sidebar() {
             </div>
             <div>
                 <p className="navbar-item">
-                    Projects
-                </p>
-            </div>
-            <div>
-                <p className="navbar-item">
-                    Experiences
+                    Work/Experiences
                 </p>
             </div>
             <div>
@@ -26,7 +21,7 @@ function Sidebar() {
             </div>
             <div>
                 <p className="navbar-item">
-                    Write to me!
+                    Connect
                 </p>
             </div>
         </aside>

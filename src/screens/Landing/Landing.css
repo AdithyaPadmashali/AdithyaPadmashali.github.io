@@ -5,7 +5,7 @@
     height: 100vh;
     width: 100%;
     flex-direction: column;
-    margin-bottom: 20em;
+    margin-bottom: 10em;
     gap: 1em;
 }
 
@@ -17,8 +17,13 @@
     text-align: center;
 }
 
+.title-grid-name h1 {
+    font-size: x-large;
+}
+
 .title-grid-name-designation {
     margin-top: 1rem;
+    font-size: 1rem;
 }
 
 .title-grid-social-media-handles {
@@ -43,11 +48,16 @@
     font-family: 'SometypeMonoRegular';
     cursor: pointer;
     margin: 0.5em auto;
+    border: 0;
 }
 
 .title-grid-welcome-message {
     display: flex;
     justify-content: center;
+}
+
+.title-grid-welcome-message h3 {
+    font-size: medium;
 }
 
 .landing-logo {

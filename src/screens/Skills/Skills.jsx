@@ -30,17 +30,17 @@ import CSS from '../../assets/logos/skills/webdev/css3-original-wordmark';
 function Skills() {
     return (
         <div className="skills-section">
-            <section class="logos-container">
-                <div class="logos-title">Languages</div>
-                <section class="logos">
+            <section className="logos-container">
+                <div className="logos-title">Languages</div>
+                <section className="logos">
                     <COriginal />
                     <CPP />
                     <Go />
                     <Java />
                     <Python />
                 </section>
-                <div class="logos-title">Technologies</div>
-                <section class="logos">
+                <div className="logos-title">{'{ '}Technologies{' }'}</div>
+                <section className="logos">
                     <AWS />
                     <Docker />
                     <Git />
@@ -49,8 +49,8 @@ function Skills() {
                     <Linux />
                     <Terraform />
                 </section>
-                <div class="logos-title">Web Development</div>
-                <section class="logos">
+                <div className="logos-title">{'< '}Web Development{' />'}</div>
+                <section className="logos">
                     <CSS />
                     <Express />
                     <Flask />
