@@ -1,0 +1,20 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    transform: translate(0px, -50%);
+    margin: auto 4rem;
+    gap: 4rem;
+}
+
+.navbar-item {
+    font-size: 1.1rem;
+}
+
+@media screen and (max-width: 767px) {
+    .navbar {
+        display: none;
+    }
+}

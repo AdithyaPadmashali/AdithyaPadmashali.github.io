@@ -1,0 +1,56 @@
+.landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 20em;
+    gap: 1em;
+}
+
+.title-grid-name {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.title-grid-name-designation {
+    margin-top: 1rem;
+}
+
+.title-grid-social-media-handles {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 30%;
+    margin: 1em;
+}
+
+.title-grid-resume-button {
+    display: flex;
+    justify-content: center;
+}
+
+.resume-button {
+    background-color: black;
+    border-radius: 0.5em;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    font-family: 'SometypeMonoRegular';
+    cursor: pointer;
+    margin: 0.5em auto;
+}
+
+.title-grid-welcome-message {
+    display: flex;
+    justify-content: center;
+}
+
+.landing-logo {
+    width: 4rem;
+    text-align: center;
+}
