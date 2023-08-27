@@ -5,6 +5,7 @@ import Skills from './screens/Skills/Skills';
 import MyWork from './screens/MyWork/MyWork';
 import Publications from './screens/Publications/Publications';
 import Connect from './screens/Connect/Connect';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <MyWork />
       <Publications />
       <Connect />
+      <Footer />
     </>
   );
 }

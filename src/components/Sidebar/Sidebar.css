@@ -9,9 +9,26 @@
     gap: 4rem;
 }
 
+.active .navbar-item {
+    font-weight: bolder;
+}
+
+.active ::before {
+    content: '>> '
+}
+
 .navbar-item {
     font-size: 1.1rem;
 }
+
+.navbar div {
+    cursor: pointer;
+}
+
+.navbar div:hover p {
+    font-weight: bold;
+}
+
 
 @media screen and (max-width: 768px) {
     .navbar {

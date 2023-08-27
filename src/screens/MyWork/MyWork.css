@@ -15,7 +15,7 @@
 
 .work-description {
     width: 50%;
-    margin-bottom: 6rem;
+    margin-bottom: 14rem;
     text-align: justify;
     line-height: 2;
     font-size: medium;
@@ -23,4 +23,51 @@
 
 .work-title {
     font-size: larger;
+}
+
+.click-for-details {
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.292);
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+.click-for-details:hover {
+    text-shadow: 15px 15px 10px rgba(0, 0, 0, 0.592);
+    font-size: large;
+}
+
+a {
+    text-decoration: none;
+    color: black
+}
+
+.work-button {
+    background-color: black;
+    border-radius: 0.5em;
+    color: white;
+    padding: 0.5rem 4rem;
+    text-align: center;
+    font-family: 'SometypeMonoRegular';
+    cursor: pointer;
+    margin: 0.5em auto;
+    border: 0;
+    transition-duration: 0.15s;
+}
+
+.work-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.work-button:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(123, 255, 123);
+    transform: scale(1.05);
+}
+
+.work-button:active {
+    background-color: rgb(0, 0, 0);
+    color: rgb(123, 255, 123);
+    transform: scale(1.1);
 }

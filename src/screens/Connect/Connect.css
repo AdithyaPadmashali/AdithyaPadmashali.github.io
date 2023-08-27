@@ -47,10 +47,23 @@
     cursor: pointer;
     margin: 0.5em auto;
     border: 0;
+    transition-duration: 0.15s;
 }
 
 .form-field-container .message-input {
     height: 7rem;
     border: 1px solid black;
     border-radius: .5em;
+}
+
+.connect-button:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(123, 255, 123);
+    transform: scale(1.05);
+}
+
+.connect-button:active {
+    background-color: rgb(0, 0, 0);
+    color: rgb(123, 255, 123);
+    transform: scale(1.1);
 }

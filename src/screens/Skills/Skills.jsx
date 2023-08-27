@@ -29,7 +29,7 @@ import CSS from '../../assets/logos/skills/webdev/css3-original-wordmark';
 
 function Skills() {
     return (
-        <div className="skills-section">
+        <div id='skills' className="skills-section">
             <section className="logos-container">
                 <div className="logos-title">Languages</div>
                 <section className="logos">
