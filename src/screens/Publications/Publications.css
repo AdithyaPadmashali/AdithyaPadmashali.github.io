@@ -92,3 +92,9 @@
         width: 80%;
     }
 }
+
+@media(prefers-reduced-motion) {
+    .publication-container {
+        transition: none;
+    }
+}

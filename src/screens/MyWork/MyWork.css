@@ -91,3 +91,9 @@ a {
         width: 80%;
     }
 }
+
+@media(prefers-reduced-motion) {
+    .work-description {
+        transition: none;
+    }
+}
