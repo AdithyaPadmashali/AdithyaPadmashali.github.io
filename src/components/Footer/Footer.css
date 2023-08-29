@@ -3,4 +3,5 @@
     align-items: flex-end;
     margin: 5rem;
     justify-content: center;
+    z-index: 999;
 }

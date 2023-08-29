@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import './Skills.css'
 
 import COriginal from '../../assets/logos/skills/languages/c-original';
@@ -28,11 +28,41 @@ import CSS from '../../assets/logos/skills/webdev/css3-original-wordmark';
 
 
 function Skills() {
+
+    const language_logosRef = useRef();
+    const tech_logosRef = useRef();
+    const web_logosRef = useRef();
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.forEach((value) => {
+                        value === 'language' && language_logosRef.current.classList.add('fancify')
+                        value === 'tech' && tech_logosRef.current.classList.add('fancify')
+                        value === 'web' && web_logosRef.current.classList.add('fancify')
+                    });
+                } else {
+                    entry.target.classList.forEach((value) => {
+                        value === 'language' && language_logosRef.current.classList.remove('fancify')
+                        value === 'tech' && tech_logosRef.current.classList.remove('fancify')
+                        value === 'web' && web_logosRef.current.classList.remove('fancify')
+                    });
+                }
+            })
+        });
+        observer.observe(language_logosRef.current)
+        observer.observe(tech_logosRef.current)
+        observer.observe(web_logosRef.current)
+
+    }, [])
+
+
     return (
         <div id='skills' className="skills-section">
             <section className="logos-container">
                 <div className="logos-title">Languages</div>
-                <section className="logos">
+                <section className='logos language' ref={language_logosRef}>
                     <COriginal />
                     <CPP />
                     <Go />
@@ -40,7 +70,7 @@ function Skills() {
                     <Python />
                 </section>
                 <div className="logos-title">{'{ '}Technologies{' }'}</div>
-                <section className="logos">
+                <section className="logos tech" ref={tech_logosRef}>
                     <AWS />
                     <Docker />
                     <Git />
@@ -50,7 +80,7 @@ function Skills() {
                     <Terraform />
                 </section>
                 <div className="logos-title">{'< '}Web Development{' />'}</div>
-                <section className="logos">
+                <section className="logos web" ref={web_logosRef}>
                     <CSS />
                     <Express />
                     <Flask />
