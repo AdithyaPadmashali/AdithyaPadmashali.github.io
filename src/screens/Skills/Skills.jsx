@@ -57,7 +57,6 @@ function Skills() {
 
     }, [])
 
-
     return (
         <div id='skills' className="skills-section">
             <section className="logos-container">
