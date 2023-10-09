@@ -23,8 +23,6 @@ function Connect() {
         );
     }
 
-    console.log(name)
-
     return (
         <div id='connect' className="connect-section">
             <section className="connect-container">
