@@ -12,10 +12,6 @@ function Publications() {
                     entry.target.classList.forEach((value) => {
                         publicationRef.current.classList.add('fancify-publication')
                     });
-                } else {
-                    // entry.target.classList.forEach((value) => {
-                    //     publicationRef.current.classList.remove('fancify-publication')
-                    // });
                 }
             })
         });
@@ -32,9 +28,7 @@ function Publications() {
                 <div className="publication-links">
                     {`Published in`}<br />
                     <a href='http://www.icccbda.com/' target='blank'><span className='click-for-details'>8th International Conference on Cloud Computing and Big Data Analytics (ICCCBDA)</span></a>
-
                 </div>
-
                 <div className="publication-button-container">
                     <a href='https://ieeexplore.ieee.org/abstract/document/10154891' target='blank'>
                         <button className="publication-button">{'> '}Read Paper<span>_</span></button>
@@ -45,4 +39,4 @@ function Publications() {
     )
 }
 
-export default Publications
+export default Publications;

@@ -1,21 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import './Landing.css'
-import GitHub from '../../assets/logos/social/GitHub'
-import LinkedIn from '../../assets/logos/social/LinkedIn'
-import Discord from '../../assets/logos/social/Discord'
+import Logos from './Logos'
 
 function Landing() {
-
-    const buttonRef = useRef();
-    const [isButtonIntersecting, setIsButtonIntersecting] = useState();
-
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            const entry = entries[0]
-            setIsButtonIntersecting(entry.isIntersecting)
-        });
-        observer.observe(buttonRef.current)
-    }, [])
 
     return (
         <section id='landing' className="landing">
@@ -27,25 +14,11 @@ function Landing() {
             </div>
             <pre className="title-grid-name-designation">Software Engineer / Full-stack Developer</pre>
             <div className="title-grid-social-media-handles">
-                <div className="landing-logo">
-                    <a href='https://www.linkedin.com/in/adithya-padmashali-034b67195' target='blank'>
-                        <LinkedIn />
-                    </a>
-                </div>
-                <div className="landing-logo">
-                    <a href='https://www.github.com/AdithyaPadmashali' target='blank'>
-                        <GitHub />
-                    </a>
-                </div>
-                <div className="landing-logo">
-                    <a href='https://discordapp.com/users/636595226709852190' target='blank'>
-                        <Discord />
-                    </a>
-                </div>
+                <Logos />
             </div>
             <div className="title-grid-resume-button">
                 <a href='https://drive.google.com/file/d/1vSAZFcXFNlpYhZ1rABfNckKLCKYGmaEh/view?usp=sharing' target='blank'>
-                    <button className="resume-button" ref={buttonRef}>{'> '}View Resume<span>_</span></button>
+                    <button className="resume-button">{'> '}View Resume<span>_</span></button>
                 </a>
             </div>
             <div className="title-grid-welcome-message">
