@@ -27,13 +27,13 @@
 
 .click-for-details {
     text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.292);
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
     cursor: pointer;
 }
 
 .click-for-details:hover {
-    text-shadow: 15px 15px 10px rgba(0, 0, 0, 0.592);
-    font-size: large;
+    text-shadow: 15px 15px 10px rgba(82, 82, 82, 0.592);
+    font-weight: bold;
 }
 
 a {
@@ -51,7 +51,7 @@ a {
     cursor: pointer;
     margin: 0.5em auto;
     border: 0;
-    transition-duration: 0.15s;
+    transition-duration: 0.1s;
 }
 
 .work-button-container {

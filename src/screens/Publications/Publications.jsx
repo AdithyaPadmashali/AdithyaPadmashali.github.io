@@ -13,9 +13,9 @@ function Publications() {
                         publicationRef.current.classList.add('fancify-publication')
                     });
                 } else {
-                    entry.target.classList.forEach((value) => {
-                        publicationRef.current.classList.remove('fancify-publication')
-                    });
+                    // entry.target.classList.forEach((value) => {
+                    //     publicationRef.current.classList.remove('fancify-publication')
+                    // });
                 }
             })
         });

@@ -43,11 +43,11 @@ function Skills() {
                         value === 'web' && web_logosRef.current.classList.add('fancify')
                     });
                 } else {
-                    entry.target.classList.forEach((value) => {
-                        value === 'language' && language_logosRef.current.classList.remove('fancify')
-                        value === 'tech' && tech_logosRef.current.classList.remove('fancify')
-                        value === 'web' && web_logosRef.current.classList.remove('fancify')
-                    });
+                    // entry.target.classList.forEach((value) => {
+                    //     value === 'language' && language_logosRef.current.classList.remove('fancify')
+                    //     value === 'tech' && tech_logosRef.current.classList.remove('fancify')
+                    //     value === 'web' && web_logosRef.current.classList.remove('fancify')
+                    // });
                 }
             })
         });

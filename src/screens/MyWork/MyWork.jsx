@@ -21,13 +21,13 @@ function MyWork() {
                         value === 'streamrRef' && streamrRef.current.classList.add('fancify-work')
                     });
                 } else {
-                    entry.target.classList.forEach((value) => {
-                        value === 'usageTrackingSystemRef' && usageTrackingSystemRef.current.classList.remove('fancify-work')
-                        value === 'muxableRef' && muxableRef.current.classList.remove('fancify-work')
-                        value === 'buzzwomanRef' && buzzwomanRef.current.classList.remove('fancify-work')
-                        value === 'openfamRef' && openfamRef.current.classList.remove('fancify-work')
-                        value === 'streamrRef' && streamrRef.current.classList.remove('fancify-work')
-                    });
+                    // entry.target.classList.forEach((value) => {
+                    //     value === 'usageTrackingSystemRef' && usageTrackingSystemRef.current.classList.remove('fancify-work')
+                    //     value === 'muxableRef' && muxableRef.current.classList.remove('fancify-work')
+                    //     value === 'buzzwomanRef' && buzzwomanRef.current.classList.remove('fancify-work')
+                    //     value === 'openfamRef' && openfamRef.current.classList.remove('fancify-work')
+                    //     value === 'streamrRef' && streamrRef.current.classList.remove('fancify-work')
+                    // });
                 }
             })
         });
