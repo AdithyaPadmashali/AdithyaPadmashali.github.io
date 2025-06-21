@@ -10,7 +10,7 @@ function Landing() {
                 Hi, I'm
             </div>
             <div className="title-grid-name">
-                <h1>Adithya Padmashali</h1>
+                <h1>Adithya Padmashal</h1>
             </div>
             <pre className="title-grid-name-designation">Software Engineer / Full-stack Developer</pre>
             <div className="title-grid-social-media-handles">
