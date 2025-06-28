@@ -1,0 +1,94 @@
+/* Experience Card Styles */
+.experience-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.experience-card__company {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0;
+}
+
+.experience-card__daterange {
+    font-size: 0.98rem;
+    color: var(--foreground);
+    opacity: 0.7;
+    font-weight: 500;
+    margin-left: 1.5rem;
+    white-space: nowrap;
+    display: block;
+    text-align: right;
+}
+
+.experience-card__location {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--foreground);
+    opacity: 0.6;
+    margin-bottom: 0.2rem;
+    margin-top: 0.1rem;
+    margin-left: auto;
+    text-align: right;
+    font-style: italic;
+    max-width: 60%;
+}
+
+.experience-card__tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.7rem;
+    margin: 0.7rem 0 0.2rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.experience-card__tech-list li {
+    display: inline-block;
+    background: var(--divider, #e0e0e0);
+    color: var(--primary, #0077cc);
+    font-size: 0.81rem;
+    font-weight: 600;
+    border-radius: 0.32em;
+    padding: 0.07em 0.48em 0.07em 0.48em;
+    margin: 0;
+    letter-spacing: 0.01em;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    transition: background 0.2s, color 0.2s;
+    border: none;
+}
+
+[data-theme="dark"] .experience-card__tech-list li {
+    background: #23272e;
+    color: #4ea1ff;
+}
+
+[data-theme="matrix"] .experience-card__tech-list li {
+    background: #0f3d19;
+    color: #00ff41;
+}
+
+[data-theme="terminal"] .experience-card__tech-list li {
+    background: #222;
+    color: #33ff33;
+}
+
+[data-theme="club"] .experience-card__tech-list li {
+    background: #3d0a3d;
+    color: #ff00cc;
+}
+
+[data-theme="music"] .experience-card__tech-list li {
+    background: #333a40;
+    color: #ffb347;
+}
+
+[data-theme="mario"] .experience-card__tech-list li {
+    background: #f1c40f;
+    color: #e63946;
+}

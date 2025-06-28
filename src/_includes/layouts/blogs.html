@@ -1,0 +1,11 @@
+{% extends "layouts/base.html" %}
+
+{% block head %}
+<meta name="description" content="{{description}}">
+<link rel="stylesheet" href="/styles/global.css">
+<link rel="stylesheet" href="/styles/bloglist.css">
+{% endblock %}
+
+{% block content %}
+{{ content | safe }}
+{% endblock %}

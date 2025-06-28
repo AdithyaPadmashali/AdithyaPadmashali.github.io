@@ -1,0 +1,29 @@
+{% extends "layouts/base.html" %}
+
+{% block head %}
+<meta name="description" content="{{description}}">
+{% endblock %}
+
+{% block content %}
+<nav class="main-nav">
+    <span class="site-title">Adithya Padmashali</span>
+</nav>
+<main class="main-content">
+    {{ content | safe }}
+</main>
+<footer class="site-footer">
+    <div class="footer-connect-title">Connect</div>
+    <div class="footer-connect-message">I'd love to hear from you! Feel free to reach out or connect on any platform
+        below.</div>
+    <ul class="footer-links footer-links-simple">
+        <li><a href="mailto:adithya.p2001@gmail.com">Email</a> <span
+                class="footer-link-desc">adithya.p.portfolio@gmail.com</span></li>
+        <li><a href="https://www.linkedin.com/in/adithya-padmashali" target="_blank" rel="noopener">LinkedIn</a> <span
+                class="footer-link-desc">Adithya Padmashali</span></li>
+        <li><a href="https://github.com/AdithyaPadmashali" target="_blank" rel="noopener noreferrer">GitHub</a> <span
+                class="footer-link-desc">AdithyaPadmashali</span></li>
+        <li><a href="https://discordapp.com/users/636595226709852190" target="_blank"
+                rel="noopener noreferrer">Discord</a> <span class="footer-link-desc">ADDer#1796</span></li>
+    </ul>
+</footer>
+{% endblock %}

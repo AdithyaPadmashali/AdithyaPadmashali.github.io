@@ -1,0 +1,59 @@
+[
+    {
+        "company": "Morgan Stanley",
+        "role": "Software Engineer II",
+        "daterange": "Aug 2023 - Present",
+        "location": "Bengaluru, India",
+        "description": [
+            "UI Engineer, a part of the SDK team, currently working on our UI Components, dashboards and UI/UX optimizations."
+        ],
+        "technologies": [
+            "TypeScript",
+            "React",
+            "Node.js",
+            "MongoDB",
+            "Spring Boot",
+            "Java"
+        ]
+    },
+    {
+        "company": "Morgan Stanley",
+        "role": "Software Engineer Intern",
+        "daterange": "Jan 2023 - Aug 2023",
+        "location": "Bengaluru, India",
+        "description": [
+            "Implemented an in-house usage tracking system.",
+            "Enabled data aggregation for 30+ apps across the department.",
+            "Created interactive visualizations with robust test coverage."
+        ],
+        "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "TypeScript",
+            "React",
+            "Node.js",
+            "MongoDB",
+            "Highcharts",
+            "Jest"
+        ]
+    },
+    {
+        "company": "Muxable Labs Inc.",
+        "role": "Remote Software Engineer Intern",
+        "daterange": "June 2022 - July 2022",
+        "location": "Remote",
+        "description": [
+            "Implemented Concurrent Multi-path Transfer (CMT) for live video streaming.",
+            "Followed IETF standards to improve video quality and make streams more resilient.",
+            "Added new features to Muxable's open-source library built in Go.",
+            "Developed, tested, and documented updates using WebRTC and Stream Control Transmission Protocol (SCTP)."
+        ],
+        "technologies": [
+            "Python",
+            "Django",
+            "PostgreSQL",
+            "Chart.js"
+        ]
+    }
+]

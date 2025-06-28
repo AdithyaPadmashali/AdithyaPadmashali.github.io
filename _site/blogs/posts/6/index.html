@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pascal&#39;s colorful triangle</title>
+<link rel="icon" type="image/webp" href="/assets/at.webp">
+<link rel="stylesheet" href="/styles/global.css">
+    
+<meta name="description" content="Making art with Pascal&#39;s triangle.">
+<link rel="stylesheet" href="/styles/global.css">
+<link rel="stylesheet" href="/styles/post.css">
+
+    <script>
+        // Multi-theme toggle logic
+        const themes = ["light", "dark", "matrix", "mario", "terminal", "club", "music"];
+        let themeIndex = 0;
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+        function toggleTheme() {
+            themeIndex = (themeIndex + 1) % themes.length;
+            ripplePageEffect();
+            setTheme(themes[themeIndex]);
+            updateThemeIcon();
+        }
+        function updateThemeIcon() {
+            const btn = document.querySelector('.theme-toggle-btn');
+            const theme = document.documentElement.getAttribute('data-theme') || 'light';
+            let icon = '🌓';
+            if (theme === 'dark') icon = '🌙';
+            if (theme === 'matrix') icon = '💾';
+            if (theme === 'mario') icon = '🍄';
+            if (theme === 'terminal') icon = '⌨️';
+            if (theme === 'club') icon = '💃';
+            if (theme === 'music') icon = '🎵';
+            if (btn) btn.textContent = icon;
+        }
+        function ripplePageEffect() {
+            const ripple = document.createElement('span');
+            ripple.className = 'theme-page-ripple';
+            document.body.appendChild(ripple);
+            // Center the ripple on the theme button
+            const btn = document.querySelector('.theme-toggle-btn');
+            let x = window.innerWidth / 2, y = window.innerHeight / 2;
+            if (btn) {
+                const rect = btn.getBoundingClientRect();
+                x = rect.left + rect.width / 2;
+                y = rect.top + rect.height / 2;
+            }
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            // Calculate max distance to a corner for full coverage
+            const maxDist = Math.max(
+                Math.hypot(x, y),
+                Math.hypot(window.innerWidth - x, y),
+                Math.hypot(x, window.innerHeight - y),
+                Math.hypot(window.innerWidth - x, window.innerHeight - y)
+            );
+            ripple.style.setProperty('--ripple-size', `${maxDist * 2}px`);
+            setTimeout(() => ripple.remove(), 900);
+        }
+        // On load, set theme from localStorage or system preference
+        (function () {
+            const saved = localStorage.getItem('theme');
+            if (saved && themes.includes(saved)) {
+                themeIndex = themes.indexOf(saved);
+                setTheme(saved);
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeIndex = 1;
+                setTheme('dark');
+            } else {
+                themeIndex = 0;
+                setTheme('light');
+            }
+            window.addEventListener('DOMContentLoaded', updateThemeIcon);
+        })();
+    </script>
+    <style>
+        .theme-toggle-btn {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--background, #f3f3f3);
+            color: var(--foreground, #222);
+            border: 1.5px solid var(--divider, #bbb);
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.13);
+            z-index: 1000;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+            opacity: 0.98;
+        }
+
+        .theme-toggle-btn:hover {
+            background: var(--divider, #e0e0e0);
+            color: var(--accent-color, #0070f3);
+        }
+
+        .theme-page-ripple {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            border-radius: 50%;
+            background: var(--accent, #ff0080);
+            opacity: 0.18;
+            transform: translate(-50%, -50%) scale(0.1);
+            width: var(--ripple-size, 100vw);
+            height: var(--ripple-size, 100vw);
+            left: 50vw;
+            top: 50vh;
+            animation: theme-page-ripple-anim 0.9s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        @keyframes theme-page-ripple-anim {
+            0% {
+                opacity: 0.18;
+                transform: translate(-50%, -50%) scale(0.1);
+            }
+
+            60% {
+                opacity: 0.13;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle theme">🌓</button>
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">Pascal&#39;s colorful triangle</h1>
+        <p class="post-meta">Posted on Sat Feb 17 2024 05:30:00 GMT+0530 (India Standard Time)</p>
+    </header>
+    <div class="post-content">
+        <p>Let's consider the Pascal's triangle - a triangle made of numbers, bordered by the number 1 on the top as well as its left and right walls. In between are other numbers, with the largest one being in the center bottom part of the triangle, symmetrically surrounded by other smaller numbers. Any given number in the triangle is the sum of the two numbers directly above it. For example,</p>
+<pre><code class="language-py">1
+1 1
+1 2 1
+1 3 3 1
+1 4 6 4 1
+1 5 10 10 5 1
+...and so on
+</code></pre>
+<p>This concept has implications in mathematics. Some of which that I'm familiar with are:</p>
+<ul>
+<li>The numbers closely relate to binomial coefficients. The entry in the <em>n</em>th row and the <em>k</em>th column is got by <em>n(C)k</em> which when solved for gives the number of ways to choose <em>k</em> elements from a set of <em>n</em> elements. So, it's applied in probability.</li>
+<li>Deriving from the first point, it is a quick and efficient way of calculating combinations and can be used in <a href="https://en.wikipedia.org/wiki/Dynamic_programming#Fibonacci_sequence">dynamic programming</a> algorithms to compute and store binomial coefficients.</li>
+<li>The numbers are closely related to the <a href="https://en.wikipedia.org/wiki/Fibonacci_sequence">fibonacci sequence</a> as well.</li>
+</ul>
+<p><strong>Fascinating stuff! But what if the numbers are replaced with colors?</strong></p>
+<blockquote>
+<p>I crafted this little project where I use PyGame to render a Pascal triangle as a collection of RGB colored tiles.</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/57041819/203818004-6873b49a-70a8-4314-83ec-87dc2ff06c04.png" alt="RGB Pascal"></p>
+<p>After around ~2 hours of studying the PyGame docs, coding, experimenting with different color schemes and tile sizes, some more beautiful outcomes came up on the screen. They're uploaded on <a href="https://github.com/AdithyaPadmashali/Pascal-Tiles">the github repo</a>*.</p>
+<p>The first three tiles are made white. If they're given a color, the outcome will mostly have mixtures of those colors in the subsequent rows. The triangle starts with low RGB values on the tip, left and right edges and then they add up to form brighter and brighter colors on the bottom.</p>
+<p><em><strong>If you've come this far, might as well kill some more time and clone the repo. See what you can come up with!. All you need is PyGame and some ideas to tinker with the code.</strong></em></p>
+<p>So, math is an art form. Where there's math, there's opportunity for art.</p>
+<blockquote>
+<p>With just a little bit of lazy coding, we are so gifted with the power of applying this art form and getting lost in admiration.</p>
+</blockquote>
+<p>Cheers!</p>
+<p>*Code for this project was written in November 2022</p>
+
+    </div>
+</article>
+
+</body>
+
+</html>

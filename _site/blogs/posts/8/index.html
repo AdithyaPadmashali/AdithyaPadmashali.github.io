@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>At dawn, Bananthimari Hills</title>
+<link rel="icon" type="image/webp" href="/assets/at.webp">
+<link rel="stylesheet" href="/styles/global.css">
+    
+<meta name="description" content="A story about exploring the place, located ~80km south of Bangalore">
+<link rel="stylesheet" href="/styles/global.css">
+<link rel="stylesheet" href="/styles/post.css">
+
+    <script>
+        // Multi-theme toggle logic
+        const themes = ["light", "dark", "matrix", "mario", "terminal", "club", "music"];
+        let themeIndex = 0;
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+        function toggleTheme() {
+            themeIndex = (themeIndex + 1) % themes.length;
+            ripplePageEffect();
+            setTheme(themes[themeIndex]);
+            updateThemeIcon();
+        }
+        function updateThemeIcon() {
+            const btn = document.querySelector('.theme-toggle-btn');
+            const theme = document.documentElement.getAttribute('data-theme') || 'light';
+            let icon = '🌓';
+            if (theme === 'dark') icon = '🌙';
+            if (theme === 'matrix') icon = '💾';
+            if (theme === 'mario') icon = '🍄';
+            if (theme === 'terminal') icon = '⌨️';
+            if (theme === 'club') icon = '💃';
+            if (theme === 'music') icon = '🎵';
+            if (btn) btn.textContent = icon;
+        }
+        function ripplePageEffect() {
+            const ripple = document.createElement('span');
+            ripple.className = 'theme-page-ripple';
+            document.body.appendChild(ripple);
+            // Center the ripple on the theme button
+            const btn = document.querySelector('.theme-toggle-btn');
+            let x = window.innerWidth / 2, y = window.innerHeight / 2;
+            if (btn) {
+                const rect = btn.getBoundingClientRect();
+                x = rect.left + rect.width / 2;
+                y = rect.top + rect.height / 2;
+            }
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            // Calculate max distance to a corner for full coverage
+            const maxDist = Math.max(
+                Math.hypot(x, y),
+                Math.hypot(window.innerWidth - x, y),
+                Math.hypot(x, window.innerHeight - y),
+                Math.hypot(window.innerWidth - x, window.innerHeight - y)
+            );
+            ripple.style.setProperty('--ripple-size', `${maxDist * 2}px`);
+            setTimeout(() => ripple.remove(), 900);
+        }
+        // On load, set theme from localStorage or system preference
+        (function () {
+            const saved = localStorage.getItem('theme');
+            if (saved && themes.includes(saved)) {
+                themeIndex = themes.indexOf(saved);
+                setTheme(saved);
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeIndex = 1;
+                setTheme('dark');
+            } else {
+                themeIndex = 0;
+                setTheme('light');
+            }
+            window.addEventListener('DOMContentLoaded', updateThemeIcon);
+        })();
+    </script>
+    <style>
+        .theme-toggle-btn {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--background, #f3f3f3);
+            color: var(--foreground, #222);
+            border: 1.5px solid var(--divider, #bbb);
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.13);
+            z-index: 1000;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+            opacity: 0.98;
+        }
+
+        .theme-toggle-btn:hover {
+            background: var(--divider, #e0e0e0);
+            color: var(--accent-color, #0070f3);
+        }
+
+        .theme-page-ripple {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            border-radius: 50%;
+            background: var(--accent, #ff0080);
+            opacity: 0.18;
+            transform: translate(-50%, -50%) scale(0.1);
+            width: var(--ripple-size, 100vw);
+            height: var(--ripple-size, 100vw);
+            left: 50vw;
+            top: 50vh;
+            animation: theme-page-ripple-anim 0.9s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        @keyframes theme-page-ripple-anim {
+            0% {
+                opacity: 0.18;
+                transform: translate(-50%, -50%) scale(0.1);
+            }
+
+            60% {
+                opacity: 0.13;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle theme">🌓</button>
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">At dawn, Bananthimari Hills</h1>
+        <p class="post-meta">Posted on Thu May 23 2024 05:30:00 GMT+0530 (India Standard Time)</p>
+    </header>
+    <div class="post-content">
+        <p><em><strong>3:30 PM</strong></em></p>
+<p>I am at work in the office. I've fixed a production issue in the frontend code and have just finished scheduling a production release for later that evening. I've got nothing planned for later. So I go to the parking lot, zoom out of the office on my bike and call it a day.</p>
+<p><em><strong>3:45 PM</strong></em></p>
+<p>I'm on the bike, with ear pods on, playing random songs on repeat, on my way home. A thought strikes me.</p>
+<p>I've got half a bottle of water, one chocolate bar, a good pair of shoes on, fuel inside the tank of a fully functioning bike, a partially functioning smartphone(that's another story) and time on my hand.</p>
+<blockquote>
+<p>Why not go on a little adventure? Out of the four directions from which I could exit Bangalore, I chose the nearest option available - south.</p>
+</blockquote>
+<p><em><strong>4:15 PM</strong></em></p>
+<p>I am speeding through the NICE Bangalore-Mysore expressway at 100kmph, overtaking trucks and conquering mini-vans, while songs still played in my earpods. I now have two options to exit the highway, namely through Kanakpura road, or Bannerghatta road. I chose Kanakpura road - the one farther away.</p>
+<p><em><strong>5:00 PM</strong></em></p>
+<p>I'm out of the expressway and on the way to exit bangalore from the south, through Kanakpura.</p>
+<p>&quot;Now, where do I go from here?&quot;</p>
+<p>Lakes and hills passed by and the road is straight. That makes my decision easy.</p>
+<p>I continue straight then take a break in Kanakpura.</p>
+<p><em><strong>5:40 PM</strong></em></p>
+<p>Break's over, it's getting dark and I have to make another decision. Go further south, or look for some uncharted trail nearby to see what I can find.</p>
+<p>I can't decide... so I did both. I went south and found the nearest hill I could possibly enter with my bike. It was named &quot;Bananthimari&quot;.</p>
+<p><em><strong>6:00 PM</strong></em></p>
+<p>After spinning my wheels through the narrow and curvy trails and a little bit of off-roading, I reach the end of the hill road.</p>
+<p>There's a little temple there with it's door closed, the ground soiled with wet mud and rocks. Behind the temple, is a picturesque landscape of all the neighbouring mountains and lakes. On the other side, is a forest trek.</p>
+<blockquote>
+<p>&quot;Forest Area - Entry Restricted&quot;, read a signpost in vain.</p>
+</blockquote>
+<p>Clouds start to cover up the sunset, the winds are strong and warm. There is about 15 mins of daylight left.
+Eerie bassy noises from inside the forest, no sign of human life.</p>
+<p><em><strong>6:05 PM</strong></em></p>
+<p>Anyways, I prop up my phone onto a slit in one of the rocks, and take some pictures.</p>
+<p><a href="https://freeimage.host/i/JscZyBa"><img src="https://iili.io/JscZyBa.md.jpg" alt="JscZyBa.md.jpg"></a></p>
+<p><em><strong>6:10 PM</strong></em></p>
+<p>The decrease in sunlight is rapid and it's getting darker by the second. I hear birds chirping, monkeys flying around tree branches above me. Animal noises from the off the trails inside the jungle still continue.</p>
+<p>Looks like I have company. Something lurked beneath the bushes in front of the me and I can't see it. It's getting spooky real fast - just the way I like it.</p>
+<p><em><strong>6:15 PM</strong></em></p>
+<p>I trail further into the uncharted woods. The noise I heard earlier is now louder and sharper from my left. I stop suddenly, not because of the noise but because of something I found on the ground right in front of me.</p>
+<p><a href="https://freeimage.host/i/Jscte6J"><img src="https://iili.io/Jscte6J.md.jpg" alt="Jscte6J.md.jpg"></a></p>
+<p>Bear pawprints. Fresh.</p>
+<p>As I stare into the distance through the bushes, keeping an eye out for a potential beast staring back at me, I feel a strong cold breeze on my face. A friendly warning from nature perhaps.</p>
+<p>It's time to go back.</p>
+<p><em><strong>6:40 PM</strong></em></p>
+<p>I'm back out of the forest trail, and near my bike. It's now dark. Flies everywhere. I start my journey back home.</p>
+<p><em><strong>6:50 PM</strong></em></p>
+<p>Off-roading back through rocky, silty, muddy, wet trails on a 150cc commuter bike with limited headlamp vision range. Good times.</p>
+<p><em><strong>7:15 PM</strong></em></p>
+<p>Back on the highway, then Kanakpura.</p>
+<p><em><strong>8:50 PM</strong></em></p>
+<p>Back to Bangalore, with another story to tell.</p>
+<p>cheers!</p>
+
+    </div>
+</article>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Anonymous",
+        "title": "Senior Software Developer, Morgan Stanley",
+        "text": "...ability to resolve the previously stalled UI work demonstrated strong problem-solving skills and ownership...",
+        "relation": "Manager & Mentor"
+    },
+    {
+        "name": "Anonymous",
+        "title": "Software Developer, Morgan Stanley",
+        "text": "...appreciate how you gave UI mentorship for everyone and are always ready to help others with their questions...",
+        "relation": "Colleague"
+    },
+    {
+        "name": "Anonymous",
+        "title": "Senior Software Developer, Morgan Stanley",
+        "text": "...takes ownership of the work items and is respectful in his interactions with his colleagues...",
+        "relation": "Colleague & Mentor"
+    },
+    {
+        "name": "Anonymous",
+        "title": "Technology Vice President, Morgan Stanley",
+        "text": "Adithya is a bright team member with strong analytical skills and a positive attitude. He is quick to learn new concepts and demonstrates an eagerness to take on challenges. His communication skills are good, and he collaborates well with team members. However, there is room for improvement in solutioning the problems, which I am sure will come with time. With a bit more focus on balancing multiple tasks efficiently, he has great potential to grow and contribute even more effectively.",
+        "relation": "Mentor",
+        "rating": 4
+    }
+]

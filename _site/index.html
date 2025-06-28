@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adithya Padmashali</title>
+<link rel="icon" type="image/webp" href="/assets/at.webp">
+<link rel="stylesheet" href="/styles/global.css">
+    
+<meta name="description" content="Landing page for Adithya Padmashali&#39;s personal website.">
+
+    <script>
+        // Multi-theme toggle logic
+        const themes = ["light", "dark", "matrix", "mario", "terminal", "club", "music"];
+        let themeIndex = 0;
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+        function toggleTheme() {
+            themeIndex = (themeIndex + 1) % themes.length;
+            ripplePageEffect();
+            setTheme(themes[themeIndex]);
+            updateThemeIcon();
+        }
+        function updateThemeIcon() {
+            const btn = document.querySelector('.theme-toggle-btn');
+            const theme = document.documentElement.getAttribute('data-theme') || 'light';
+            let icon = '🌓';
+            if (theme === 'dark') icon = '🌙';
+            if (theme === 'matrix') icon = '💾';
+            if (theme === 'mario') icon = '🍄';
+            if (theme === 'terminal') icon = '⌨️';
+            if (theme === 'club') icon = '💃';
+            if (theme === 'music') icon = '🎵';
+            if (btn) btn.textContent = icon;
+        }
+        function ripplePageEffect() {
+            const ripple = document.createElement('span');
+            ripple.className = 'theme-page-ripple';
+            document.body.appendChild(ripple);
+            // Center the ripple on the theme button
+            const btn = document.querySelector('.theme-toggle-btn');
+            let x = window.innerWidth / 2, y = window.innerHeight / 2;
+            if (btn) {
+                const rect = btn.getBoundingClientRect();
+                x = rect.left + rect.width / 2;
+                y = rect.top + rect.height / 2;
+            }
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            // Calculate max distance to a corner for full coverage
+            const maxDist = Math.max(
+                Math.hypot(x, y),
+                Math.hypot(window.innerWidth - x, y),
+                Math.hypot(x, window.innerHeight - y),
+                Math.hypot(window.innerWidth - x, window.innerHeight - y)
+            );
+            ripple.style.setProperty('--ripple-size', `${maxDist * 2}px`);
+            setTimeout(() => ripple.remove(), 900);
+        }
+        // On load, set theme from localStorage or system preference
+        (function () {
+            const saved = localStorage.getItem('theme');
+            if (saved && themes.includes(saved)) {
+                themeIndex = themes.indexOf(saved);
+                setTheme(saved);
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeIndex = 1;
+                setTheme('dark');
+            } else {
+                themeIndex = 0;
+                setTheme('light');
+            }
+            window.addEventListener('DOMContentLoaded', updateThemeIcon);
+        })();
+    </script>
+    <style>
+        .theme-toggle-btn {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--background, #f3f3f3);
+            color: var(--foreground, #222);
+            border: 1.5px solid var(--divider, #bbb);
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.13);
+            z-index: 1000;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+            opacity: 0.98;
+        }
+
+        .theme-toggle-btn:hover {
+            background: var(--divider, #e0e0e0);
+            color: var(--accent-color, #0070f3);
+        }
+
+        .theme-page-ripple {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            border-radius: 50%;
+            background: var(--accent, #ff0080);
+            opacity: 0.18;
+            transform: translate(-50%, -50%) scale(0.1);
+            width: var(--ripple-size, 100vw);
+            height: var(--ripple-size, 100vw);
+            left: 50vw;
+            top: 50vh;
+            animation: theme-page-ripple-anim 0.9s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        @keyframes theme-page-ripple-anim {
+            0% {
+                opacity: 0.18;
+                transform: translate(-50%, -50%) scale(0.1);
+            }
+
+            60% {
+                opacity: 0.13;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle theme">🌓</button>
+    
+<nav class="main-nav">
+    <span class="site-title">Adithya Padmashali</span>
+</nav>
+<main class="main-content">
+    
+<section class="hero">
+    <div class="hero__content">
+    <div class="hero__fancy-divider"></div>
+    <div class="hero__intro-row">
+          <h1 class="hero__title">Computer Science enthusiast <span style="font-weight:400;">who cannot distinguish between art and programming.</span></h1>
+        </div>
+        <p class="hero__subtitle">Currently I'm part of an agile team at Morgan Stanley where I work on UI/UX and backend components.</p>
+        <div class="blogs-btn-wrapper" style="gap: 1rem;">
+            <span class="blogs-btn-halo">
+                <a href="/blogs/" class="blogs-btn">Read my blogs</a>
+            </span>
+            <span class="blogs-btn-halo">
+                <a href="https://drive.google.com/file/d/1q-XylrWNLm3vWXInTXFUKCSasfzmrfNk/view?usp=sharing" class="blogs-btn" target="_blank" rel="noopener noreferrer">View Resume</a>
+            </span>
+        </div>
+    </div>
+</section>
+
+<h2 class="section-title">Experience</h2>
+
+
+<hr class="default-divider"/>
+<div class="experience-card">
+    <div class="experience-card__header">
+        <h3 class="experience-card__company">Morgan Stanley</h3>
+        <span class="experience-card__daterange">Aug 2023 - Present</span>
+    </div>
+    <span class="experience-card__location">Bengaluru, India</span>
+    <p class="experience-card__role">Software Engineer II</p>
+    <p class="experience-card__description">UI Engineer, a part of the SDK team, currently working on our UI Components, dashboards and UI/UX optimizations.</p>
+    <ul class="experience-card__tech-list">
+        <li>TypeScript</li><li>React</li><li>Node.js</li><li>MongoDB</li><li>Spring Boot</li><li>Java</li>
+    </ul>
+</div>
+
+<hr class="default-divider"/>
+<div class="experience-card">
+    <div class="experience-card__header">
+        <h3 class="experience-card__company">Morgan Stanley</h3>
+        <span class="experience-card__daterange">Jan 2023 - Aug 2023</span>
+    </div>
+    <span class="experience-card__location">Bengaluru, India</span>
+    <p class="experience-card__role">Software Engineer Intern</p>
+    <p class="experience-card__description">Implemented an in-house usage tracking system. Enabled data aggregation for 30+ apps across the department. Created interactive visualizations with robust test coverage.</p>
+    <ul class="experience-card__tech-list">
+        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Node.js</li><li>MongoDB</li><li>Highcharts</li><li>Jest</li>
+    </ul>
+</div>
+
+<hr class="default-divider"/>
+<div class="experience-card">
+    <div class="experience-card__header">
+        <h3 class="experience-card__company">Muxable Labs Inc.</h3>
+        <span class="experience-card__daterange">June 2022 - July 2022</span>
+    </div>
+    <span class="experience-card__location">Remote</span>
+    <p class="experience-card__role">Remote Software Engineer Intern</p>
+    <p class="experience-card__description">Implemented Concurrent Multi-path Transfer (CMT) for live video streaming. Followed IETF standards to improve video quality and make streams more resilient. Added new features to Muxable's open-source library built in Go. Developed, tested, and documented updates using WebRTC and Stream Control Transmission Protocol (SCTP).</p>
+    <ul class="experience-card__tech-list">
+        <li>Python</li><li>Django</li><li>PostgreSQL</li><li>Chart.js</li>
+    </ul>
+</div>
+
+
+<h2 class="section-title">Recommendations</h2>
+
+
+<div class="recommendation-card">
+<blockquote class="recommendation-card__text">“...ability to resolve the previously stalled UI work demonstrated strong problem-solving skills and ownership...”</blockquote>
+    <div class="recommendation-card__header">
+        <div class="recommendation-card__info">
+            <div class="recommendation-card__meta-row">
+                <h3 class="recommendation-card__name">Anonymous</h3>
+                <span class="recommendation-card__meta-right">
+                    <span class="recommendation-card__title">Senior Software Developer, Morgan Stanley</span>
+                    <span class="recommendation-card__relation"> | Manager & Mentor</span>
+                </span>
+            </div>
+            <div class="recommendation-card__stars">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="recommendation-card">
+<blockquote class="recommendation-card__text">“...appreciate how you gave UI mentorship for everyone and are always ready to help others with their questions...”</blockquote>
+    <div class="recommendation-card__header">
+        <div class="recommendation-card__info">
+            <div class="recommendation-card__meta-row">
+                <h3 class="recommendation-card__name">Anonymous</h3>
+                <span class="recommendation-card__meta-right">
+                    <span class="recommendation-card__title">Software Developer, Morgan Stanley</span>
+                    <span class="recommendation-card__relation"> | Colleague</span>
+                </span>
+            </div>
+            <div class="recommendation-card__stars">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="recommendation-card">
+<blockquote class="recommendation-card__text">“...takes ownership of the work items and is respectful in his interactions with his colleagues...”</blockquote>
+    <div class="recommendation-card__header">
+        <div class="recommendation-card__info">
+            <div class="recommendation-card__meta-row">
+                <h3 class="recommendation-card__name">Anonymous</h3>
+                <span class="recommendation-card__meta-right">
+                    <span class="recommendation-card__title">Senior Software Developer, Morgan Stanley</span>
+                    <span class="recommendation-card__relation"> | Colleague & Mentor</span>
+                </span>
+            </div>
+            <div class="recommendation-card__stars">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="recommendation-card">
+<blockquote class="recommendation-card__text">“Adithya is a bright team member with strong analytical skills and a positive attitude. He is quick to learn new concepts and demonstrates an eagerness to take on challenges. His communication skills are good, and he collaborates well with team members. However, there is room for improvement in solutioning the problems, which I am sure will come with time. With a bit more focus on balancing multiple tasks efficiently, he has great potential to grow and contribute even more effectively.”</blockquote>
+    <div class="recommendation-card__header">
+        <div class="recommendation-card__info">
+            <div class="recommendation-card__meta-row">
+                <h3 class="recommendation-card__name">Anonymous</h3>
+                <span class="recommendation-card__meta-right">
+                    <span class="recommendation-card__title">Technology Vice President, Morgan Stanley</span>
+                    <span class="recommendation-card__relation"> | Mentor</span>
+                </span>
+            </div>
+            <div class="recommendation-card__stars">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star">☆</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr class="default-divider"/>
+</main>
+<footer class="site-footer">
+    <div class="footer-connect-title">Connect</div>
+    <div class="footer-connect-message">I'd love to hear from you! Feel free to reach out or connect on any platform
+        below.</div>
+    <ul class="footer-links footer-links-simple">
+        <li><a href="mailto:adithya.p2001@gmail.com">Email</a> <span
+                class="footer-link-desc">adithya.p.portfolio@gmail.com</span></li>
+        <li><a href="https://www.linkedin.com/in/adithya-padmashali" target="_blank" rel="noopener">LinkedIn</a> <span
+                class="footer-link-desc">Adithya Padmashali</span></li>
+        <li><a href="https://github.com/AdithyaPadmashali" target="_blank" rel="noopener noreferrer">GitHub</a> <span
+                class="footer-link-desc">AdithyaPadmashali</span></li>
+        <li><a href="https://discordapp.com/users/636595226709852190" target="_blank"
+                rel="noopener noreferrer">Discord</a> <span class="footer-link-desc">ADDer#1796</span></li>
+    </ul>
+</footer>
+
+</body>
+
+</html>

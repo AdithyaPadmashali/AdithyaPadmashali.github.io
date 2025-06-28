@@ -1,0 +1,23 @@
+---
+layout: layouts/home.html
+title: Adithya Padmashali
+description: "Landing page for Adithya Padmashali's personal website."
+---
+
+{% Hero %}
+
+<h2 class="section-title">Experience</h2>
+
+{% for experience in exp %}
+{% Divider %}
+{% ExperienceCard company=experience.company, role=experience.role, daterange=experience.daterange,
+location=experience.location, description=experience.description, technologies=experience.technologies %}
+{% endfor %}
+
+<h2 class="section-title">Recommendations</h2>
+
+{% for rec in recommendations %}
+{% RecommendationCard name=rec.name, title=rec.title, text=rec.text, relation=rec.relation, rating=rec.rating %}
+{% endfor %}
+
+{% Divider %}
