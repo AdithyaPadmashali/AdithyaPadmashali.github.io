@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devlog - The Storytime Project</title>
+<link rel="icon" type="image/webp" href="/assets/at.webp">
+<link rel="stylesheet" href="/styles/global.css">
+    
+<meta name="description" content="A detailed log of planning made, decisions taken, challenges faced, solutions found, etc. while building the Storytime application from scratch - A solo undertaking">
+<link rel="stylesheet" href="/styles/global.css">
+<link rel="stylesheet" href="/styles/post.css">
+
+    <script>
+        // Multi-theme toggle logic
+        const themes = ["light", "dark", "matrix", "mario", "terminal", "club", "music"];
+        let themeIndex = 0;
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+        function toggleTheme() {
+            themeIndex = (themeIndex + 1) % themes.length;
+            ripplePageEffect();
+            setTheme(themes[themeIndex]);
+            updateThemeIcon();
+        }
+        function updateThemeIcon() {
+            const btn = document.querySelector('.theme-toggle-btn');
+            const theme = document.documentElement.getAttribute('data-theme') || 'light';
+            let icon = '🌓';
+            if (theme === 'dark') icon = '🌙';
+            if (theme === 'matrix') icon = '💾';
+            if (theme === 'mario') icon = '🍄';
+            if (theme === 'terminal') icon = '⌨️';
+            if (theme === 'club') icon = '💃';
+            if (theme === 'music') icon = '🎵';
+            if (btn) btn.textContent = icon;
+        }
+        function ripplePageEffect() {
+            const ripple = document.createElement('span');
+            ripple.className = 'theme-page-ripple';
+            document.body.appendChild(ripple);
+            // Center the ripple on the theme button
+            const btn = document.querySelector('.theme-toggle-btn');
+            let x = window.innerWidth / 2, y = window.innerHeight / 2;
+            if (btn) {
+                const rect = btn.getBoundingClientRect();
+                x = rect.left + rect.width / 2;
+                y = rect.top + rect.height / 2;
+            }
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            // Calculate max distance to a corner for full coverage
+            const maxDist = Math.max(
+                Math.hypot(x, y),
+                Math.hypot(window.innerWidth - x, y),
+                Math.hypot(x, window.innerHeight - y),
+                Math.hypot(window.innerWidth - x, window.innerHeight - y)
+            );
+            ripple.style.setProperty('--ripple-size', `${maxDist * 2}px`);
+            setTimeout(() => ripple.remove(), 900);
+        }
+        // On load, set theme from localStorage or system preference
+        (function () {
+            const saved = localStorage.getItem('theme');
+            if (saved && themes.includes(saved)) {
+                themeIndex = themes.indexOf(saved);
+                setTheme(saved);
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeIndex = 1;
+                setTheme('dark');
+            } else {
+                themeIndex = 0;
+                setTheme('light');
+            }
+            window.addEventListener('DOMContentLoaded', updateThemeIcon);
+        })();
+    </script>
+    <style>
+        .theme-toggle-btn {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--background, #f3f3f3);
+            color: var(--foreground, #222);
+            border: 1.5px solid var(--divider, #bbb);
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.13);
+            z-index: 1000;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+            opacity: 0.98;
+        }
+
+        .theme-toggle-btn:hover {
+            background: var(--divider, #e0e0e0);
+            color: var(--accent-color, #0070f3);
+        }
+
+        .theme-page-ripple {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            border-radius: 50%;
+            background: var(--accent, #ff0080);
+            opacity: 0.18;
+            transform: translate(-50%, -50%) scale(0.1);
+            width: var(--ripple-size, 100vw);
+            height: var(--ripple-size, 100vw);
+            left: 50vw;
+            top: 50vh;
+            animation: theme-page-ripple-anim 0.9s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        @keyframes theme-page-ripple-anim {
+            0% {
+                opacity: 0.18;
+                transform: translate(-50%, -50%) scale(0.1);
+            }
+
+            60% {
+                opacity: 0.13;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle theme">🌓</button>
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">Devlog - The Storytime Project</h1>
+        <p class="post-meta">Posted on Thu Jun 20 2024 00:00:00 GMT+0000 (Coordinated Universal Time)</p>
+    </header>
+    <div class="post-content">
+        <p>The Plan:
+I want to build an application for people who like to read and/or write stories.
+The application will have to be complete to a good extent, have ample documentation and be user and developer-friendly.
+In the future, I would like to make this application open-source.</p>
+<p>Why am I doing this?</p>
+<p>I'd like to challenge myself
+I want to make something from scratch and brag about it
+I've never completed an end to end project on my own and I'd like to give it a shot
+I want to learn and grow in the domain of software engineering and design</p>
+<p>I want people to enjoy the app and whatever features it offers
+I want to contribute to the growth of good content on the internet
+I want avid readers and writers to be able to explore what the world comes up with
+I myself want to explore what the world comes up with</p>
+<p>If this application scales to a good extent... maybe even around a hundred active users, it would be a dream come true. However, that is not the expectation. The goal is the learn and polish my skills as a programmer.</p>
+<p>And lastly, I'm documenting the entire journey for self-accountability and future introspection. Doesn't hurt to document and log each and every minute decision I take.</p>
+<p>The Idea:</p>
+<p>From here on in, every reference made to &quot;The user&quot; will be changed to &quot;bob&quot; for the sake of convenience.</p>
+<p>&quot;Storytime&quot; is gonna be the name for this application for now.</p>
+<p>It's an open source platform for stories. Basically github for creative content, instead of code.</p>
+<p>The app will have the following views:
+2. Browse story repositories
+1. Browse story flows
+3. View your branch requests
+4. For each story flow - a comments section
+5. View your saved story flows
+6. A user login/onboarding page of course</p>
+<p>A story is analogous to a repository and can have multiple different flows, multiple narratives, branches, and endings that bobs can enjoy and explore.</p>
+<p>One story flow can be read at a time. If bob doesn't like the story flow, he can either go back to search for another story repo altogether or can toggle between the other flows that the same story repo contains. Each story flow will have a bunch of comments from the public associated with it.</p>
+<p>If at any point of time, bob has an idea for an alternate ending or a branch - he can make a branch request with his content in it. A branch request will have comments in it as well and those comments can be from the public. A branch request will be made only if bob is not the current owner of the story repo. If he were the owner, bob can do anything with the story repo. Once the BR has been made, the owner of the story will check bob's BR and approve it. Then, bob's BR will be made available for the public to view.</p>
+<p>If bob really likes some story flows, he can save it for future reads.</p>
+<p>In the mvp1 stage, all story repos are public by default. Each story repo will have only one owner.</p>
+<p>On a very high level, as of 20th June 2024, the above features are to satisfy the mvp1 stage of the project. I've got more additions to the subsequent mvps like upvotes, downvotes, favorites, likes, views/reads for each story flow, genre based filters, etc., but let's keep those for later.</p>
+<p>The Approach:</p>
+<p>For now, the app will be developed for desktop users, since I'm not very proficient with mobile app development.
+Since I'm the only developer, I'm going to make this application a monolithic backend built with fastAPI or node. Need to check which one I'm most comfortable with since I've lost touch with both those technologies. For the frontend, react will be used. A good to have would be two environments apart from my local setup, but I need to do some more research on that area. (Basically to have a dev and prod environment to deploy my changes to). The deployment host and the domain name, will also have to be checked.</p>
+<p>Anything related to deployment and scaling, will not be handled as part of mvp1. Mvp1 is going to be for the core logic and feel of the application and will mostly take place on my local environment.</p>
+<p>As part of my environment:
+VS Code for development
+Git and Github for version control
+and any other tech that I may encounter along the way will the documented along with why I chose that tech.</p>
+<p>Day 1:</p>
+<p>started to set up my local workspace
+I'm using fastAPI as backend
+Using MongoDB for storing user data.
+Installed MongoDB compass for better visibility of docs
+running mongodb in docker container, then connected it to compass
+tried connecting to mongo with pymongo from fastAPI route, connection works
+but not very sure... pydantic throws an error. Need to check how to use pydantic model mapping in python projects
+Next in line is to complete the user authentication and authorization endpoints - using this as reference -&gt; <a href="https://www.freecodecamp.org/news/how-to-add-jwt-authentication-in-fastapi">link</a></p>
+<p>things I learnt:
+how to use docker desktop
+what is dependency injection
+how to use mongodb compass
+what is uvicorn
+basically setting up the backend project and database in local env.</p>
+<p>Day 2:</p>
+<p>Was on a vacation for three days. Finally fingured out the basic methodologies, terminologies that are used in the process of building a basic app using fastAPI. Took help of some youtube vids and a little of documentation and started to develop my application.
+Set up the file structure for the application and set up a mongo model called 'story' and test 'users' model. Only these two models exist for now. Used pydantic to define them.
+Skipping the auth part for later while deciding which routes to be protected.</p>
+<p>good resource: <a href="https://www.mongodb.com/developer/languages/python/python-quickstart-fastapi/">link</a></p>
+<p>Day 3:</p>
+<p>Set up the JWT based authentication and modified and added a few models -
+as of now, we have users, stories and flows.</p>
+<p>Learnt to add protected routes. Mainly used the resource I found on day 1, to get things working.
+Opened a new github repo and pushed the commits to it.
+Basic setup of the backend application is now looking complete enough for me to build more routes on top of it.</p>
+<p>Day 4:</p>
+<p>Enhancing routes for create stories
+adding new routes:
+to get user details by id,
+to get stories of current user</p>
+<p>ran into a circular import issue. learnt more about it. Luckily this project was simple enough to resolve since it is in its early stage.
+refactored the code, separated auth and user related routes</p>
+<p>Next steps:
+add endpoints for:
+save story
+save flow
+get stories in flow
+add branch to story
+delete one of my current stories
+remove saved story
+remove saved flow</p>
+<p>get random flow from story (This is going to be the core logic for the app) - basically this api endpoint is responsible for virtually traversing the story and branches from root to any of the leafs randomly, thereby creating a combination of stories (say chapters) that could potentially be a good read!</p>
+<p>Day 5:</p>
+<p>Realized that adding the generate_random_flow endpoint is not possible without the endpoints and logic for branching stories.
+So need to work on those first. In particular, the endpoints are:
+(First define a branch)
+create branch request
+approve branch request
+add branch to story
+Other basic routes were added and some mistakes were rectified.</p>
+<p>Day 6:</p>
+<p>Added some routes for handing branch requests create and approve. Rectified some logical errors in those routes</p>
+<p>Was thinking about whether to have a generate_random_flow endpoint that generates a flow from start to end.... or to have a basic endpoint get_random_next function that gets called from the controller and whose sole purpose is to check for the branches of any given story and return one random branch from that array. And then that could be used to lazy-load on the UI, thus saving overheads. The former approach would potentially take a lot of time to execute and would also result in a lot of complex code. The latter approach seems simpler and easier to implement. Maybe the lazy load can take place as the user is about to finish reading a story section and scrolls further, anticipating a continuation.</p>
+<p>There seems to be a logical error in the save flow logic - I need to generate a flow object before saving it. Need to look into that part</p>
+<p>Made the get next random flow endpoint - in the process I added a while loop. Need to check the dangers associated with it and whether it is okay to keep that logic. I can say for sure that the loop will always come to an end no matter what. But I understand that it could be risky.</p>
+<p>The logic is:</p>
+<p>while the next_random_story is already in a visited array and the branches array is not empty:
+make a new array without that next_random_story
+pick a new random story and assign that to next_random_story</p>
+<p>This is basically to avoid getting the same story multiple times.
+Traversing the story graph and getting stuck in a cycle is possible because right now it's allowed to have that kind of branching.
+However, to me right now it seems okay to allow it. Anyways the reader will not experience the confusion. That branching will also depend on the approver of the branch, whether they are okay with cycles in their story. (seems like an interesting case.... could lead to very long stories. Exciting).</p>
+<p>Altogether, the backend code seems to be reaching completion as far as MVP1 is concerned. Will need to spend a day polisihing and refactoring it before working starting work on the frontend.</p>
+<p>Day 7:</p>
+<p>Did some rectification:
+todo:
+add a get flow endpoint
+and start with the UI</p>
+
+    </div>
+</article>
+
+</body>
+
+</html>

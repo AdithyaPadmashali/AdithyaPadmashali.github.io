@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('./reset.css');
+@import url('./hero.css');
+@import url('./blogs-btn.css');
+@import url('./experience-card.css');
+@import url('./recommendation-card.css');
+@import url('./footer.css');
+
+/* Theme variables */
+:root {
+    --background: #f9f6f1;
+    --foreground: #222;
+    --primary: #0077cc;
+    --divider: #e0e0e0;
+    --divider-hover: #bdbdbd;
+    --accent: #ff0080;
+    --code-bg: #f4f4f4;
+}
+
+[data-theme="dark"] {
+    --background: #181a1b;
+    --foreground: #f3f3f3;
+    --primary: #4ea1ff;
+    --divider: #333a40;
+    --divider-hover: #5a6b7a;
+    --accent: #ff0080;
+    --code-bg: #23272e;
+}
+
+[data-theme="matrix"] {
+    --background: #101c11;
+    --foreground: #00ff41;
+    --primary: #00ff41;
+    --divider: #0f3d19;
+    --divider-hover: #00ff41;
+    --accent: #00ff41;
+    --code-bg: #0a1a0a;
+}
+
+[data-theme="matrix"] body {
+    background-color: var(--background);
+    background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20opacity%3D%220.10%22%3E%3Ctext%20x%3D%225%22%20y%3D%2215%22%20font-size%3D%2216%22%20fill%3D%22%2300ff41%22%3E0%3C%2Ftext%3E%3Ctext%20x%3D%2220%22%20y%3D%2230%22%20font-size%3D%2216%22%20fill%3D%22%2300ff41%22%3E1%3C%2Ftext%3E%3Ctext%20x%3D%2210%22%20y%3D%2235%22%20font-size%3D%2212%22%20fill%3D%22%2300ff41%22%3E0%3C%2Ftext%3E%3Ctext%20x%3D%2230%22%20y%3D%2210%22%20font-size%3D%2212%22%20fill%3D%22%2300ff41%22%3E1%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+    background-repeat: repeat;
+}
+
+[data-theme="mario"] {
+    --background: #f8e9c1;
+    --foreground: #e63946;
+    --primary: #457b9d;
+    --divider: #f1c40f;
+    --divider-hover: #e63946;
+    --accent: #f1c40f;
+    --code-bg: #ffe066;
+}
+
+[data-theme="mario"] body {
+    background-color: var(--background);
+    background-image: url('data:image/svg+xml,%3Csvg width="48" height="24" xmlns="http://www.w3.org/2000/svg"%3E%3Cellipse cx="16" cy="12" rx="10" ry="5" fill="%23fff" opacity="0.09"/%3E%3Cellipse cx="28" cy="14" rx="6" ry="3" fill="%23fff" opacity="0.09"/%3E%3Cellipse cx="36" cy="10" rx="4" ry="2" fill="%23fff" opacity="0.09"/%3E%3C/svg%3E');
+    background-repeat: repeat;
+    background-size: 48px 24px;
+}
+
+[data-theme="terminal"] {
+    --background: #181818;
+    --foreground: #33ff33;
+    --primary: #33ff33;
+    --divider: #222;
+    --divider-hover: #33ff33;
+    --accent: #33ff33;
+    --code-bg: #111;
+}
+
+[data-theme="terminal"] body {
+    background-color: var(--background);
+    background-image: url('data:image/svg+xml,%3Csvg%20width%3D%22160%22%20height%3D%2240%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20opacity%3D%220.10%22%3E%3Ctext%20x%3D%2210%22%20y%3D%2215%22%20font-family%3D%22monospace%22%20font-size%3D%228%22%20fill%3D%22%2333ff33%22%3E/%20/%20/%20/%20/%20/%20/%20/%20/%20/%20/%20/%20/%20/%20/%20/%3C%2Ftext%3E%3Ctext%20x%3D%2230%22%20y%3D%2235%22%20font-family%3D%22monospace%22%20font-size%3D%228%22%20fill%3D%22%2333ff33%22%3E%5C%20%5C%20%5C%20%5C%20%5C%20%5C%20%5C%20%5C%20%5C%20%5C%20%5C%20%5C%20%5C%20%5C%20%5C%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+    background-repeat: repeat;
+    background-size: 160px 40px;
+}
+
+[data-theme="club"] {
+    --background: #1a0025;
+    --foreground: #ffe6fa;
+    --primary: #ff00cc;
+    --divider: #3d0a3d;
+    --divider-hover: #ff00cc;
+    --accent: #ffef00;
+    --code-bg: #2a003d;
+}
+
+[data-theme="music"] {
+    --background: #181828;
+    --foreground: #f3f3f3;
+    --primary: #ffb347;
+    --divider: #333a40;
+    --divider-hover: #ffb347;
+    --accent: #ff5e62;
+    --code-bg: #23272e;
+}
+
+[data-theme="music"] body {
+    background-color: var(--background);
+    background-image: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20opacity%3D%220.13%22%3E%3Ctext%20x%3D%2210%22%20y%3D%2240%22%20font-size%3D%2240%22%20fill%3D%22%2523ffb347%22%3E%26%23119070%3B%3C%2Ftext%3E%3Ctext%20x%3D%2250%22%20y%3D%2280%22%20font-size%3D%2240%22%20fill%3D%22%2523ff5e62%22%3E%26%23119136%3B%3C%2Ftext%3E%3Ctext%20x%3D%2230%22%20y%3D%2290%22%20font-size%3D%2230%22%20fill%3D%22%2523fff%22%3E%26%23119133%3B%3C%2Ftext%3E%3Ctext%20x%3D%2210%22%20y%3D%2290%22%20font-size%3D%2225%22%20fill%3D%22%2523ffb347%22%3E%26%239837%3B%3C%2Ftext%3E%3Ctext%20x%3D%2270%22%20y%3D%2240%22%20font-size%3D%2225%22%20fill%3D%22%2523ff5e62%22%3E%26%239838%3B%3C%2Ftext%3E%3Ctext%20x%3D%2240%22%20y%3D%2220%22%20font-size%3D%2220%22%20fill%3D%22%2523fff%22%3E%26%239839%3B%3C%2Ftext%3E%3Crect%20x%3D%2260%22%20y%3D%2210%22%20width%3D%2210%22%20height%3D%2240%22%20rx%3D%225%22%20fill%3D%22%2523ffb347%22%2F%3E%3Cellipse%20cx%3D%2265%22%20cy%3D%2250%22%20rx%3D%2215%22%20ry%3D%227%22%20fill%3D%22%2523ff5e62%22%2F%3E%3Ccircle%20cx%3D%2280%22%20cy%3D%2220%22%20r%3D%227%22%20fill%3D%22%2523fff%22%2F%3E%3Cpolygon%20points%3D%2250%2C10%2060%2C30%2040%2C30%22%20fill%3D%22%2523ffb347%22%2F%3E%3Cpolygon%20points%3D%2280%2C70%2090%2C90%2070%2C90%22%20fill%3D%22%2523ff5e62%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+    background-repeat: repeat;
+}
+
+/* Optional: fun neon effect for stripclub theme */
+[data-theme="club"] .section-title,
+[data-theme="club"] .site-title {
+    text-shadow: 0 0 3px #ff00cc, 0 0 6px #ffef00, 0 0 1px #fff;
+}
+
+[data-theme="club"] .blogs-btn,
+[data-theme="club"] .blogs-btn-halo::before {
+    background: linear-gradient(90deg, #ff00cc 0%, #ffef00 100%);
+}
+
+[data-theme="club"] .site-footer {
+    --footer-bg: #2a003d;
+}
+
+[data-theme="dark"] .site-footer {
+    --footer-bg: #23272e;
+}
+
+[data-theme="matrix"] .site-footer {
+    --footer-bg: #0a1a0a;
+}
+
+[data-theme="mario"] .site-footer {
+    --footer-bg: #ffe066;
+}
+
+[data-theme="terminal"] .site-footer {
+    --footer-bg: #111;
+}
+
+[data-theme="music"] .site-footer {
+    --footer-bg: #23272e;
+}
+
+[data-theme="light"] .site-footer {
+    --footer-bg: #40f56da9;
+}
+
+/* Remove neon halo for stripclub theme section titles and nav */
+[data-theme="club"] .section-title,
+[data-theme="club"] .site-title,
+[data-theme="club"] .main-nav {
+    text-shadow: none !important;
+}
+
+body {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-height: 100vh;
+    margin: 0 auto;
+    max-width: 42rem;
+    line-height: 1.7;
+    font-size: 0.98rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-top: 8.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-size: 1.02rem;
+}
+
+p {
+    margin-bottom: 1.2em;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover,
+a:focus {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+ul,
+ol {
+    margin: 1em 0 1em 2em;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 1.5rem auto;
+}
+
+code,
+pre {
+    font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+    background: #f4f4f4;
+    border-radius: 4px;
+    padding: 0.2em 0.4em;
+    font-size: 0.98em;
+}
+
+pre {
+    padding: 1em;
+    overflow-x: auto;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+/* Divider styles */
+.default-divider {
+    border: none;
+    border-top: 2.5px solid var(--divider);
+    margin: 2.5rem 0;
+    width: 100%;
+    max-width: 100%;
+    opacity: 0.85;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.2s;
+}
+
+.default-divider:hover {
+    border-top-color: var(--divider-hover);
+    opacity: 1;
+}
+
+.main-nav {
+    width: 100%;
+    padding: 0.7rem 0.5rem 0.3rem 0.5rem;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 0.05rem;
+}
+
+.site-title {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 1.02rem;
+    letter-spacing: 0.01em;
+    color: var(--primary);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin-bottom: 1.7rem;
+    /* Added for extra gap */
+}
+
+.main-content {
+    flex: 1 1 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 0.5rem 0 0.5rem;
+    min-height: 60vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+a,
+.main-content {
+    text-align: left !important;
+}
+
+@keyframes theme-toggle-splash-anim {
+    0% {
+        opacity: 0.97;
+        transform: translate(-50%, -50%) scale(1);
+        filter: brightness(2.5) saturate(2.5) drop-shadow(0 0 24px #fff) drop-shadow(0 0 12px var(--accent, #ff0080));
+    }
+
+    40% {
+        opacity: 0.85;
+        transform: translate(-50%, -50%) scale(3.2) rotate(12deg);
+        filter: brightness(3.5) saturate(3.2) drop-shadow(0 0 48px #fff) drop-shadow(0 0 24px var(--accent, #ff0080));
+    }
+
+    80% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(5.2) rotate(-8deg);
+        filter: brightness(4.5) saturate(4.2) drop-shadow(0 0 80px #fff) drop-shadow(0 0 32px var(--accent, #ff0080));
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(6.2) rotate(0deg);
+        filter: brightness(5.5) saturate(5.2) drop-shadow(0 0 120px #fff) drop-shadow(0 0 48px var(--accent, #ff0080));
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 90%;
+    }
+
+    body {
+        font-size: 0.91rem;
+        padding-top: 6.7rem;
+        max-width: 100vw;
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+    }
+
+    .main-content {
+        padding: 0 0.7rem 0 0.7rem;
+        min-height: 50vh;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 0.97rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .site-title {
+        font-size: 0.93rem;
+        margin-bottom: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 0.91rem;
+        margin: 1.3rem 0 0.7rem 0;
+        padding-left: 0.4rem;
+        border-left-width: 3px;
+    }
+}

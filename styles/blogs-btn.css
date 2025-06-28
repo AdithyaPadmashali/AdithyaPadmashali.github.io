@@ -1,0 +1,97 @@
+/* Blog Button Styles */
+.blogs-btn-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0 1rem 0;
+    gap: 2rem;
+}
+
+.blogs-btn-halo {
+    position: relative;
+    display: inline-block;
+}
+
+.blogs-btn-halo::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -6px;
+    right: -6px;
+    bottom: -3px;
+    z-index: 0;
+    border-radius: 1.1rem;
+    background: conic-gradient(#ff0080, #7928ca, #0077ff, #00cfff, #00ffb8, #ffeb3b, #ff0080);
+    filter: blur(4px) brightness(1.08);
+    opacity: 0.45;
+    animation: rainbow-halo 2.5s linear infinite;
+    transition: opacity 0.2s;
+}
+
+@keyframes rainbow-halo {
+    0% {
+        filter: blur(4px) brightness(1.08) hue-rotate(0deg);
+    }
+
+    100% {
+        filter: blur(4px) brightness(1.08) hue-rotate(360deg);
+    }
+}
+
+.blogs-btn {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 0.32rem 0.85rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(90deg, var(--primary, #0077ff) 0%, var(--accent, #7928ca) 100%);
+    border: none;
+    border-radius: 0.8rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+    outline: none;
+    transition: background 0.2s, transform 0.18s, box-shadow 0.18s, text-decoration 0.18s;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+}
+
+[data-theme="club"] .blogs-btn {
+    background: linear-gradient(90deg, #ff00cc 0%, #ffef00 100%);
+}
+
+[data-theme="matrix"] .blogs-btn {
+    background: linear-gradient(90deg, #00ff41 0%, #0f3d19 100%);
+    color: #101c11;
+}
+
+[data-theme="mario"] .blogs-btn {
+    background: linear-gradient(90deg, #457b9d 0%, #f1c40f 100%);
+    color: #e63946;
+}
+
+[data-theme="terminal"] .blogs-btn {
+    background: linear-gradient(90deg, #e95420 0%, #77216f 100%);
+    color: #fff;
+}
+
+[data-theme="music"] .blogs-btn {
+    background: linear-gradient(90deg, #ffb347 0%, #ff5e62 100%);
+    color: #181828;
+}
+
+.blogs-btn:hover,
+.blogs-btn:focus {
+    background: linear-gradient(90deg, #ff0080 0%, #ffeb3b 100%);
+    color: #181a1a;
+    transform: translateY(-1px) scale(1.03);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
+    text-decoration: none;
+}
+
+.blogs-btn-halo:hover::before,
+.blogs-btn-halo:focus::before {
+    opacity: 0.9;
+    filter: blur(9px) brightness(1.2);
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I faced my job interview</title>
+<link rel="icon" type="image/webp" href="/assets/at.webp">
+<link rel="stylesheet" href="/styles/global.css">
+    
+<meta name="description" content="Highlighting my preparations and the experience of the in-person interview process which led me to a job offer.">
+<link rel="stylesheet" href="/styles/global.css">
+<link rel="stylesheet" href="/styles/post.css">
+
+    <script>
+        // Multi-theme toggle logic
+        const themes = ["light", "dark", "matrix", "mario", "terminal", "club", "music"];
+        let themeIndex = 0;
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+        function toggleTheme() {
+            themeIndex = (themeIndex + 1) % themes.length;
+            ripplePageEffect();
+            setTheme(themes[themeIndex]);
+            updateThemeIcon();
+        }
+        function updateThemeIcon() {
+            const btn = document.querySelector('.theme-toggle-btn');
+            const theme = document.documentElement.getAttribute('data-theme') || 'light';
+            let icon = '🌓';
+            if (theme === 'dark') icon = '🌙';
+            if (theme === 'matrix') icon = '💾';
+            if (theme === 'mario') icon = '🍄';
+            if (theme === 'terminal') icon = '⌨️';
+            if (theme === 'club') icon = '💃';
+            if (theme === 'music') icon = '🎵';
+            if (btn) btn.textContent = icon;
+        }
+        function ripplePageEffect() {
+            const ripple = document.createElement('span');
+            ripple.className = 'theme-page-ripple';
+            document.body.appendChild(ripple);
+            // Center the ripple on the theme button
+            const btn = document.querySelector('.theme-toggle-btn');
+            let x = window.innerWidth / 2, y = window.innerHeight / 2;
+            if (btn) {
+                const rect = btn.getBoundingClientRect();
+                x = rect.left + rect.width / 2;
+                y = rect.top + rect.height / 2;
+            }
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            // Calculate max distance to a corner for full coverage
+            const maxDist = Math.max(
+                Math.hypot(x, y),
+                Math.hypot(window.innerWidth - x, y),
+                Math.hypot(x, window.innerHeight - y),
+                Math.hypot(window.innerWidth - x, window.innerHeight - y)
+            );
+            ripple.style.setProperty('--ripple-size', `${maxDist * 2}px`);
+            setTimeout(() => ripple.remove(), 900);
+        }
+        // On load, set theme from localStorage or system preference
+        (function () {
+            const saved = localStorage.getItem('theme');
+            if (saved && themes.includes(saved)) {
+                themeIndex = themes.indexOf(saved);
+                setTheme(saved);
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeIndex = 1;
+                setTheme('dark');
+            } else {
+                themeIndex = 0;
+                setTheme('light');
+            }
+            window.addEventListener('DOMContentLoaded', updateThemeIcon);
+        })();
+    </script>
+    <style>
+        .theme-toggle-btn {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--background, #f3f3f3);
+            color: var(--foreground, #222);
+            border: 1.5px solid var(--divider, #bbb);
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.13);
+            z-index: 1000;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+            opacity: 0.98;
+        }
+
+        .theme-toggle-btn:hover {
+            background: var(--divider, #e0e0e0);
+            color: var(--accent-color, #0070f3);
+        }
+
+        .theme-page-ripple {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            border-radius: 50%;
+            background: var(--accent, #ff0080);
+            opacity: 0.18;
+            transform: translate(-50%, -50%) scale(0.1);
+            width: var(--ripple-size, 100vw);
+            height: var(--ripple-size, 100vw);
+            left: 50vw;
+            top: 50vh;
+            animation: theme-page-ripple-anim 0.9s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        @keyframes theme-page-ripple-anim {
+            0% {
+                opacity: 0.18;
+                transform: translate(-50%, -50%) scale(0.1);
+            }
+
+            60% {
+                opacity: 0.13;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle theme">🌓</button>
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">How I faced my job interview</h1>
+        <p class="post-meta">Posted on Fri Aug 05 2022 00:00:00 GMT+0000 (Coordinated Universal Time)</p>
+    </header>
+    <div class="post-content">
+        <p>As soon as I was offered a job offer after clearing all the rounds of my interview for a full-time position at the organization, I was asked to share my experiences and tips that I thought would help my peers in their pursuits.</p>
+<h2>Here goes:</h2>
+<p>I started the preparation for the job during the first week of June. I had rarely solved any coding questions before that time.
+Although I had less than 2 months to prepare, I made sure not to overwhelm myself by doing a lot of programming and problem solving in one day. For example, I solved at most 3-5 problems on average per day, while exhaustively examining the concepts that went into solving those &quot;puzzles&quot;. I mostly used python for the coding tests and as usual, I chose not to make notes.</p>
+<h3>Before the interview:</h3>
+<ul>
+<li>
+<p>Refered to a list of leetcode problems by <a href="https://www.neetcode.io">neetcode</a>. I picked around 80 problems to work on, starting with the easy problems and then moving on to the medium ones. <a href="https://www.youtube.com/@NeetCode">Neetcode's youtube channel</a> was helpful.</p>
+</li>
+<li>
+<p>The first ~60 pages of &quot;Cracking the Coding Interview&quot; by Gayle Laakmann McDowell give some useful general tips and insights into what to expect in the interview process in general. Chapters 12-15 were helpful as refreshers for fundamental CS concepts.</p>
+</li>
+<li>
+<p>Spent a couple of days revising my resume and making it ATS-friendly. I Used latex to make my resume on <a href="https://www.overleaf.com/">overleaf.com</a>. I mainly focused on the projects and experience sections and made sure that the resume didn't cross one page in length.</p>
+</li>
+<li>
+<p>Finally, decided on a few key facts to tell about myself and my works in my 1-2 minute-long pitch for answering common questions like “Tell me about yourself”.</p>
+</li>
+</ul>
+<h3>During the interview:</h3>
+<blockquote>
+<p>Knowledge of these concepts came in handy: Object Oriented Programming Fundamentals, Operating Systems, Databases and SQL, Data Structures and Algorithms, Basics of computer networks</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>Round 1 Coding</strong>: Questions on OOP concepts (Inheritance, polymorphism and its types, differences between classes and interfaces), Database Management, and Operating Systems were asked. A question based on designing a set of classes and interfaces was asked. A question based on a greedy algorithm was asked. Familiarity in estimating the time and space complexity of a piece of code or an algorithm is essential. This round lasted for ~50 minutes. I made sure to sit back, relax and talk to the interviewer while I crafted the code on paper.</p>
+</li>
+<li>
+<p><strong>Round 2 HR</strong>: A series of questions based on an imaginary scenario with a client and team were asked - questions that give insights into your approaches towards situations like team conflicts and project deadline overlaps. This round was an hour long discussion about various circumstances we would face while working on a project as a team. These questions have no right or wrong answers - I'd say, honesty is key. For each such question asked, I would imagine myself in that scenario and explain to the interviewer all the possible things I could do, eventually giving what I thought would be the best response to every situation.</p>
+</li>
+<li>
+<p><strong>Round 3 System Design and problem solving</strong>: &quot;Design a food ordering app&quot;. The code for the design was supposed to be written as a set of related interfaces and classes. I first gathered all the requirements and clearly specified each assumption I made before actually starting the design. I did not explicitly study system design concepts before this. However, basic familiarity with Design Patterns and Database concepts (Sharding, ACID, etc.) were helpful. A Linked list based question was asked followed by an in-depth discussion about my projects in my resume. This round lasted a little more than an hour.</p>
+</li>
+</ul>
+<p>This was an in-person interview, which meant that explaining my solutions, while thinking out loud on a whiteboard/paper might have been appreciated.
+As a general rule, I ensured to let the interviewer know my thought process by keeping a conversation flowing about my approach to each solution while I wrote the code on paper so the interviewer could know if I was going in the right direction. If my approach was not correct, the interviewer would help me think of another solution, immediately pushing me closer towards the correct approach or would simply move on to the next question.</p>
+<p>Also, in my opinion it is not necessary to keep talking in the interview. Moments of silence to think clearly before talking is okay :).</p>
+<h3>After the interview:</h3>
+<ul>
+<li>Introspect on what went right and wrong.</li>
+<li>Most importantly, in any case, celebrate! 🎊</li>
+</ul>
+
+    </div>
+</article>
+
+</body>
+
+</html>
