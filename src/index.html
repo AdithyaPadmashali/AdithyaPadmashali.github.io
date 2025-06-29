@@ -6,18 +6,22 @@ description: "Landing page for Adithya Padmashali's personal website."
 
 {% Hero %}
 
-<h2 class="section-title">Experience</h2>
+<div class="experience-section">
+    <h2 class="section-title">Experience</h2>
 
-{% for experience in exp %}
-{% Divider %}
-{% ExperienceCard company=experience.company, role=experience.role, daterange=experience.daterange,
-location=experience.location, description=experience.description, technologies=experience.technologies %}
-{% endfor %}
+    {% for experience in exp %}
+    {% Divider %}
+    {% ExperienceCard company=experience.company, role=experience.role, daterange=experience.daterange,
+    location=experience.location, description=experience.description, technologies=experience.technologies %}
+    {% endfor %}
+</div>
 
-<h2 class="section-title">Recommendations</h2>
-
-{% for rec in recommendations %}
-{% RecommendationCard name=rec.name, title=rec.title, text=rec.text, relation=rec.relation, rating=rec.rating %}
-{% endfor %}
+<div class="recommendation-section">
+    <h2 class="section-title">Recommendations</h2>
+    {% Divider %}
+    {% for rec in recommendations %}
+    {% RecommendationCard name=rec.name, title=rec.title, text=rec.text, relation=rec.relation, rating=rec.rating %}
+    {% endfor %}
+</div>
 
 {% Divider %}
