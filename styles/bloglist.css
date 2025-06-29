@@ -32,9 +32,11 @@
     font-weight: 700;
     color: var(--primary);
     margin: 0 0 0.4rem 0;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+    /* Allow title to wrap and not overlap with tag */
+    word-break: break-word;
+    padding-right: 7.5em;
+    /* space for tag on right */
+    /* Removed: text-overflow, overflow, white-space */
     text-decoration: none !important;
 }
 
